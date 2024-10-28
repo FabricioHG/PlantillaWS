@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\tracer;
 
 /**
@@ -11,25 +13,25 @@ class NoopTracer implements TracerInterface {
    * {@inheritdoc}
    */
   public function start(string $category, string $name, array $attributes = []): object {
-    return new \Stdclass();
+    return new \stdClass();
   }
 
   /**
-   * {@inheritdoc}
+   * Do nothing.
    */
   public function openSection(object $span): object {
-    return new \Stdclass();
+    return new \stdClass();
   }
 
   /**
-   * {@inheritdoc}
+   * Do nothing.
    */
   public function closeSection(object $span): object {
-    return new \Stdclass();
+    return new \stdClass();
   }
 
   /**
-   * {@inheritdoc}
+   * Do nothing.
    */
   public function stop(object $span): void {
   }

@@ -226,7 +226,7 @@ display:
           grouping: {  }
           interval: '3000'
           keyboard: 1
-          ride: 1
+          ride: null
           navigation: 1
           indicators: 1
           pause: 1
@@ -236,6 +236,7 @@ display:
           image: field_imagen
           title: ''
           description: body
+          caption_breakpoints: 'd-none d-md-block'
       row:
         type: fields
       query:

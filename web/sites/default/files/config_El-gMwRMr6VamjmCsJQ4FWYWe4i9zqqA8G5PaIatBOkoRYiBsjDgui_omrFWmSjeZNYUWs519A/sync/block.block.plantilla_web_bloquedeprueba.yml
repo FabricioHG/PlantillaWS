@@ -12,7 +12,7 @@ dependencies:
 id: plantilla_web_bloquedeprueba
 theme: plantilla_web
 region: piso_1
-weight: 0
+weight: -10
 provider: null
 plugin: 'block_content:9cad67d9-9884-460a-9e92-9581246380d9'
 settings:

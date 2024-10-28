@@ -280,7 +280,7 @@ class WebformSubmissionForm extends ContentEntityForm {
    * @see \Drupal\Core\Entity\EntityFormBuilder::getForm
    */
   public function setEntity(EntityInterface $entity) {
-    // Create new metadata to be applie when the form is built.
+    // Create new metadata to be applied when the form is built.
     // @see \Drupal\webform\WebformSubmissionForm::buildForm
     $this->bubbleableMetadata = new WebformBubbleableMetadata();
 
@@ -767,31 +767,6 @@ class WebformSubmissionForm extends ContentEntityForm {
     // @see \Drupal\webform\WebformSubmissionForm::addStatesPrefix
     $this->statesPrefix = '.' . end($class);
 
-    // Check for a custom webform, track it, and return it.
-    if ($custom_form = $this->getCustomForm($form, $form_state)) {
-      $custom_form['#custom_form'] = TRUE;
-      return $custom_form;
-    }
-
-    $form = parent::form($form, $form_state);
-
-    /* Information */
-
-    // Prepend webform submission data using the default view without the data.
-    if (!$webform_submission->isNew() && !$webform_submission->isDraft()) {
-      $form['navigation'] = [
-        '#type' => 'webform_submission_navigation',
-        '#webform_submission' => $webform_submission,
-        '#weight' => -20,
-      ];
-      $form['information'] = [
-        '#type' => 'webform_submission_information',
-        '#webform_submission' => $webform_submission,
-        '#source_entity' => $this->sourceEntity,
-        '#weight' => -19,
-      ];
-    }
-
     /* Confirmation */
 
     // Add confirmation modal.
@@ -815,6 +790,31 @@ class WebformSubmissionForm extends ContentEntityForm {
         '#weight' => -1000,
         '#attached' => ['library' => ['webform/webform.confirmation.modal']],
         '#element_validate' => ['::removeConfirmationModal'],
+      ];
+    }
+
+    // Check for a custom webform, track it, and return it.
+    if ($custom_form = $this->getCustomForm($form, $form_state)) {
+      $custom_form['#custom_form'] = TRUE;
+      return $custom_form;
+    }
+
+    $form = parent::form($form, $form_state);
+
+    /* Information */
+
+    // Prepend webform submission data using the default view without the data.
+    if (!$webform_submission->isNew() && !$webform_submission->isDraft()) {
+      $form['navigation'] = [
+        '#type' => 'webform_submission_navigation',
+        '#webform_submission' => $webform_submission,
+        '#weight' => -20,
+      ];
+      $form['information'] = [
+        '#type' => 'webform_submission_information',
+        '#webform_submission' => $webform_submission,
+        '#source_entity' => $this->sourceEntity,
+        '#weight' => -19,
       ];
     }
 
@@ -1756,6 +1756,13 @@ class WebformSubmissionForm extends ContentEntityForm {
    *   The current state of the form.
    */
   public function autosave(array &$form, FormStateInterface $form_state) {
+    // Make sure the submission exists before validating it.
+    /** @var \Drupal\webform\WebformSubmissionInterface $webform_submission */
+    $webform_submission = $this->getEntity();
+    if ($webform_submission->id() && !WebformSubmission::load($webform_submission->id())) {
+      return;
+    }
+
     if ($form_state->hasAnyErrors()) {
       if ($this->draftEnabled() && $this->getWebformSetting('draft_auto_save') && !$this->entity->isCompleted()) {
         $form_state->set('in_draft', TRUE);
@@ -1854,6 +1861,14 @@ class WebformSubmissionForm extends ContentEntityForm {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
+    // Make sure the submission exists before validating it.
+    /** @var \Drupal\webform\WebformSubmissionInterface $webform_submission */
+    $webform_submission = $this->getEntity();
+    if ($webform_submission->id() && !WebformSubmission::load($webform_submission->id())) {
+      $form_state->setErrorByName(NULL, $this->t('An error occurred while trying to validate the submission. Please save your work and reload this page.'));
+      return;
+    }
+
     parent::validateForm($form, $form_state);
 
     // Disable inline form error when performing validation via the API.

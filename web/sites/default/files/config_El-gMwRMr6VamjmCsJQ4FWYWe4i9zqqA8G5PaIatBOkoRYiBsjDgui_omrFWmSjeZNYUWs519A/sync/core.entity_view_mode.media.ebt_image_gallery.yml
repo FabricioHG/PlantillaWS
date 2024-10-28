@@ -1,0 +1,13 @@
+uuid: 96e2d2c3-2a6b-4aa6-966c-ef6b5035946c
+langcode: es
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: gx3dAzTlzUoOPV6nrqIxtsHu6AWtMEd6M4HRihgOIdc
+id: media.ebt_image_gallery
+label: 'EBT Image Gallery'
+description: ''
+targetEntityType: media
+cache: true

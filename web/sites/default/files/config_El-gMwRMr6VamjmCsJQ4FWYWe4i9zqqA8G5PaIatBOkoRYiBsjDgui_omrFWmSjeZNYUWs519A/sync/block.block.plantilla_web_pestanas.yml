@@ -7,7 +7,7 @@ dependencies:
 id: plantilla_web_pestanas
 theme: plantilla_web
 region: content
-weight: -7
+weight: -8
 provider: null
 plugin: local_tasks_block
 settings:

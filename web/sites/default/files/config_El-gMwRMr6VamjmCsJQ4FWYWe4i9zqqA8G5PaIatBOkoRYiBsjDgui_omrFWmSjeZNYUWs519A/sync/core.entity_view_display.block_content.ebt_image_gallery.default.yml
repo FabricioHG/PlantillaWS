@@ -1,0 +1,44 @@
+uuid: 29ae94fa-712f-4f6d-93ee-dd43fb203e6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ebt_image_gallery
+    - field.field.block_content.ebt_image_gallery.body
+    - field.field.block_content.ebt_image_gallery.field_ebt_image_gallery
+    - field.field.block_content.ebt_image_gallery.field_ebt_settings
+  module:
+    - ebt_core
+    - text
+_core:
+  default_config_hash: vR-7_1M__12ELdq1IjHW5dYHXbjNbXTl83IbuAVADFo
+id: block_content.ebt_image_gallery.default
+targetEntityType: block_content
+bundle: ebt_image_gallery
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_ebt_image_gallery:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: ebt_image_gallery
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_ebt_settings:
+    type: ebt_settings_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  langcode: true

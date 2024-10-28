@@ -1,0 +1,26 @@
+uuid: e43401d7-6277-4b63-a5ec-926af809b7cc
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.ebt_image_gallery
+    - field.storage.block_content.body
+  module:
+    - text
+_core:
+  default_config_hash: RI-w_mHu5j0k1rnEr3l73w0KQBcCH3Q6ZImikN8AdBw
+id: block_content.ebt_image_gallery.body
+field_name: body
+entity_type: block_content
+bundle: ebt_image_gallery
+label: Cuerpo
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

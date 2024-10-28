@@ -1,0 +1,30 @@
+uuid: aaa72e7a-34d6-4875-9b2c-24f251f8c624
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:ebt_image_gallery:b4261e18-5d92-4c08-905e-0ca998d88809'
+  module:
+    - block_content
+    - system
+  theme:
+    - plantilla_web
+id: plantilla_web_galeriadeprueba
+theme: plantilla_web
+region: content
+weight: -1
+provider: null
+plugin: 'block_content:b4261e18-5d92-4c08-905e-0ca998d88809'
+settings:
+  id: 'block_content:b4261e18-5d92-4c08-905e-0ca998d88809'
+  label: 'Galeria de prueba'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

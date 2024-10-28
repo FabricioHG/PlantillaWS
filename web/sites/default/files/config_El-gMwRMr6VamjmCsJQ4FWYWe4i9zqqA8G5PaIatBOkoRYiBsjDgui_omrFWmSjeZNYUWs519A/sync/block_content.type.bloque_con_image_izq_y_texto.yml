@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: bloque_con_image_izq_y_texto
 label: 'Bloque con image izq y texto'
-revision: 0
+revision: false
 description: ''

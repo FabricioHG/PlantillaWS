@@ -10,7 +10,7 @@ dependencies:
 id: plantilla_web_carouselautoplay
 theme: plantilla_web
 region: piso_5
-weight: 0
+weight: -10
 provider: null
 plugin: webs_systems_carousel_autoplay
 settings:

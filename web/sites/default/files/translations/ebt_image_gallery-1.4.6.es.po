@@ -1,0 +1,20 @@
+# Spanish translation of Extra Block Types (EBT): Image Gallery (1.4.6)
+# Copyright (c) 2024 by the Spanish translation team
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Extra Block Types (EBT): Image Gallery (1.4.6)\n"
+"POT-Creation-Date: 2024-07-31 07:46+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Language-Team: Spanish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+msgid "Styles"
+msgstr "Estilos"
+msgid "Fluid grid"
+msgstr "Cuadrícula fluida"
+msgid "Not created"
+msgstr "No creado"
