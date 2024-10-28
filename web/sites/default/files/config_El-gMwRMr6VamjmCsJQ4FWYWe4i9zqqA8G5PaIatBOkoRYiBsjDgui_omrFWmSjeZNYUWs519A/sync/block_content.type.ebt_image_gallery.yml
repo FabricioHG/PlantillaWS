@@ -1,0 +1,10 @@
+uuid: 04bd58ef-6c1c-4a36-8c9b-6f7a684d9d7c
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: hyvESyE2V701OB-pYMNV1fcs9afHHvGMwmKvID2dSys
+id: ebt_image_gallery
+label: 'EBT Image Gallery'
+revision: false
+description: 'Extra Block Type (EBT): Image Gallery'
