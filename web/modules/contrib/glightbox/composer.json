@@ -1,0 +1,15 @@
+{
+  "name": "drupal/glightbox",
+  "description": "GLightbox is a pure javascript lightbox.",
+  "type": "drupal-module",
+  "homepage": "https://www.drupal.org/project/glightbox",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/glightbox",
+    "source": "https://git.drupalcode.org/project/glightbox"
+  },
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "require": {
+      "levmyshkin/glightbox": "^3.2"
+  }
+}
